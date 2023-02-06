@@ -11,8 +11,9 @@
     #Importante! Se basa en toda la estructura de project de Odoo
     #https://www.odoo.com/documentation/15.0/es/applications/services/project.html
 
-    'depends': ['project'],
+    'depends': ['base'],
     'data': [
         'views/view_tareas.xml',
+        'views/view_tareas_calendar.xml'
     ],
 }

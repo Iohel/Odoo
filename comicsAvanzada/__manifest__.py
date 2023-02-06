@@ -14,7 +14,6 @@ Gestor de bibliotecas (Version avanzada)
     'category': 'Tools',
     'version': '0.1',
     'depends': ['base'],
-
     'data': [
        
         #Estos dos primeros ficheros:
