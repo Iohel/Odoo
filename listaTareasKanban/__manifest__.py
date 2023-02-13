@@ -14,6 +14,5 @@
     'depends': ['project'],
     'data': [
         'views/view_tareas.xml',
-        'views/view_tareas2.xml'
     ],
 }
