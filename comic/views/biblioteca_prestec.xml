@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id='biblioteca_prestec_action' model='ir.actions.act_window'>
+        <field name="name">Biblioteca de Prestec</field>
+        <!-- Indicamos a que modelo aplica -->
+        <field name="res_model">biblioteca.prestec</field>
+        <!-- Indicamos que los comics pueden verse en tree para el listado,
+            y en form para la creación/edición -->
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    
+    <menuitem name="Prestec" id="biblioteca_prestec_menu" parent="biblioteca_base_menu" action="biblioteca_prestec_action"/>
+    
+
+    <record id="biblioteca_prestec_view_form" model="ir.ui.view">
+        <field name="name">Formulario de Prestamo de la biblioteca</field>
+        <field name="model">biblioteca.prestec</field>
+        <field name="arch" type="xml">
+            <form>
+                <!-- Creamos un boton "archivar". 
+                    Al llamarse "archivar" se encarga de llamar al metodo "archivar"
+                    del modelo del que hereda "biblioteca_comic".
+                    Este metodo archivar cambie el estado del atributo del modelo "activo"
+                -->
+                
+                <group>
+                    
+                    <field name="nombreComic"/>
+                <field name="nombreSocio"/>                        
+                <field name="fecha_prestada"/>
+                <field name="fecha_retorno"/>
+                   
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <!-- Definición de la vista Tree -->
+    <record id="biblioteca_prestec_view_tree" model="ir.ui.view">
+        <field name="name">Lista de Prestec de la biblioteca</field>
+        <field name="model">biblioteca.prestec</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="nombreComic"/>
+                <field name="nombreSocio"/>                        
+                <field name="fecha_prestada"/>
+                <field name="fecha_retorno"/>
+    
+            </tree>
+        </field>
+    </record>
+
+    
+</odoo>
