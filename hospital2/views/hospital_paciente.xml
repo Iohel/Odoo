@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Definimos como mostramos la vista en el modelo -->
+    <record id='hospital_paciente_action' model='ir.actions.act_window'>
+        <field name="name">Pacientes</field>
+        <!-- Indicamos a que modelo aplica -->
+        <field name="res_model">hospital.paciente</field>
+        <!-- Indicamos que los comics pueden verse en tree para el listado,
+            y en form para la creación/edición -->
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Simple menu item, sin más utilidad que la didáctica -->
+    <menuitem name="Hospital" id="hospital_base_menu" />
+    <menuitem name="Paciente" id="hospital_paciente_menu" parent="hospital_base_menu" action="hospital_paciente_action"/>
+    
+    <!-- <menuitem name="Socios" id="biblioteca_socio_menu" parent="biblioteca_base_menu" action="biblioteca_socio_action"/> -->
+    <!-- Definición de la Vista formulario -->
+    <record id="hospital_paciente_view_form" model="ir.ui.view">
+        <field name="name">Formulario Paciente</field>
+        <field name="model">hospital.paciente</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button type="object" name="archivar" string="Archivar Pacientes"/>
+                </header>
+                <group>
+                    <field name="nombre"/>
+                    <field name="cognoms"/>
+                    <field name="simptomes"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <!-- Definición de la vista Tree -->
+    <record id="hospital_paciente_view_tree" model="ir.ui.view">
+        <field name="name">Lista Pacientes</field>
+        <field name="model">hospital.paciente</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="nombre"/>
+                <field name="cognoms"/>                        
+                <field name="simptomes"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Definición de la vista busqueda-->
+    <record id="hospital_paciente_view_search" model="ir.ui.view">
+        <field name="name">Búsqueda Pacientes</field>
+        <field name="model">hospital.paciente</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="nombre"/>
+                <field name="cognoms"/>
+                <field name="simptomes"/>
+            </search>
+        </field>
+    </record>
+
+</odoo>
+

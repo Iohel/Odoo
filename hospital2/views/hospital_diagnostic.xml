@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Definimos como mostramos la vista en el modelo -->
+    <record id='hospital_diagnostic_action' model='ir.actions.act_window'>
+        <field name="name">Diagnostics</field>
+        <!-- Indicamos a que modelo aplica -->
+        <field name="res_model">hospital.diagnostic</field>
+        <!-- Indicamos que los comics pueden verse en tree para el listado,
+            y en form para la creación/edición -->
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Simple menu item, sin más utilidad que la didáctica -->
+    
+    <menuitem name="Diagnostic" id="hospital_diagnostic_menu" parent="hospital_base_menu" action="hospital_diagnostic_action"/>
+    
+    <!-- Definición de la Vista formulario -->
+    <record id="hospital_diagnostic_view_form" model="ir.ui.view">
+        <field name="name">Formulario Diagnostic</field>
+        <field name="model">hospital.diagnostic</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button type="object" name="archivar" string="Archivar Diagnostics"/>
+                </header>
+                <group>
+                    <field name="pacient"/>
+                    <field name="metge"/>
+                    <field name="diagnostic"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <!-- Definición de la vista Tree -->
+    <record id="hospital_diagnostic_view_tree" model="ir.ui.view">
+        <field name="name">Lista Diagnostics</field>
+        <field name="model">hospital.diagnostic</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="pacient"/>
+                <field name="metge"/>                        
+                <field name="diagnostic"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Definición de la vista busqueda-->
+    <record id="hospital_diagnostic_view_search" model="ir.ui.view">
+        <field name="name">Búsqueda Diagnostics</field>
+        <field name="model">hospital.diagnostic</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="pacient"/>
+                <field name="metge"/>
+                <field name="diagnostic"/>
+            </search>
+        </field>
+    </record>
+
+</odoo>
+

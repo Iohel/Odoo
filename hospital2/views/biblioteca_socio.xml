@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id='biblioteca_socio_action' model='ir.actions.act_window'>
+        <field name="name">Biblioteca de Socios</field>
+        <!-- Indicamos a que modelo aplica -->
+        <field name="res_model">biblioteca.socio</field>
+        <!-- Indicamos que los comics pueden verse en tree para el listado,
+            y en form para la creación/edición -->
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    
+    <menuitem name="Socios" id="biblioteca_socio_menu" parent="biblioteca_base_menu" action="biblioteca_socio_action"/>
+    
+
+    <record id="biblioteca_socio_view_form" model="ir.ui.view">
+        <field name="name">Formulario de Socio de la biblioteca</field>
+        <field name="model">biblioteca.socio</field>
+        <field name="arch" type="xml">
+            <form>
+                <!-- Creamos un boton "archivar". 
+                    Al llamarse "archivar" se encarga de llamar al metodo "archivar"
+                    del modelo del que hereda "biblioteca_comic".
+                    Este metodo archivar cambie el estado del atributo del modelo "activo"
+                -->
+                
+                <group>
+                    
+                    <field name="nombre"/>
+                        <!-- Utilizamos el Widget "many2many_tags" para que la relación
+                            muchos a muchos se vea en la interfaz como etiquetas -->
+                    <field name="cognom"/>
+                    <field name="identificador"/>
+                   
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <!-- Definición de la vista Tree -->
+    <record id="biblioteca_socio_view_tree" model="ir.ui.view">
+        <field name="name">Lista de Socios de la biblioteca</field>
+        <field name="model">biblioteca.socio</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="nombre"/>
+                <field name="cognom"/>                        
+                <field name="identificador"/>
+            </tree>
+        </field>
+    </record>
+
+    
+</odoo>
