@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Definimos como mostramos la vista en el modelo -->
+    <record id='institut_alumne_action' model='ir.actions.act_window'>
+        <field name="name">Alumnes</field>
+        <!-- Indicamos a que modelo aplica -->
+        <field name="res_model">institut.alumne</field>
+        <!-- Indicamos que los comics pueden verse en tree para el listado,
+            y en form para la creación/edición -->
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Simple menu item, sin más utilidad que la didáctica -->
+    <menuitem name="Alumnes" id="institut_alumne_menu" parent="institut_base_menu" action="institut_alumne_action"/>
+    
+    <!-- <menuitem name="Socios" id="biblioteca_socio_menu" parent="biblioteca_base_menu" action="biblioteca_socio_action"/> -->
+    <!-- Definición de la Vista formulario -->
+    <record id="institut_alumne_view_form" model="ir.ui.view">
+        <field name="name">Formulario Alumnes</field>
+        <field name="model">institut.alumne</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button type="object" name="archivar" string="Archivar Alumnes"/>
+                </header>
+                <group>
+                    <field name="nom"/>
+                    <field name="cognom"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <!-- Definición de la vista Tree -->
+    <record id="institut_alumne_view_tree" model="ir.ui.view">
+        <field name="name">Lista Alumnes</field>
+        <field name="model">institut.alumne</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="nom"/>
+                <field name="cognom"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Definición de la vista busqueda-->
+    <record id="institut_alumne_view_search" model="ir.ui.view">
+        <field name="name">Búsqueda Alumnes</field>
+        <field name="model">institut.alumne</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="nom"/>
+                <field name="cognom"/>
+            </search>
+        </field>
+    </record>
+
+</odoo>
+

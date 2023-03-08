@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Definimos como mostramos la vista en el modelo -->
+    <record id='institut_cicle_action' model='ir.actions.act_window'>
+        <field name="name">Cicles</field>
+        <!-- Indicamos a que modelo aplica -->
+        <field name="res_model">institut.cicle</field>
+        <!-- Indicamos que los comics pueden verse en tree para el listado,
+            y en form para la creación/edición -->
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Simple menu item, sin más utilidad que la didáctica -->
+    <menuitem name="Institut" id="institut_base_menu" />
+    <menuitem name="Cicle" id="institut_cicle_menu" parent="institut_base_menu" action="institut_cicle_action"/>
+    
+    <!-- <menuitem name="Socios" id="biblioteca_socio_menu" parent="biblioteca_base_menu" action="biblioteca_socio_action"/> -->
+    <!-- Definición de la Vista formulario -->
+    <record id="institut_cicle_view_form" model="ir.ui.view">
+        <field name="name">Formulario Cicle</field>
+        <field name="model">institut.cicle</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button type="object" name="archivar" string="Archivar Cicles"/>
+                </header>
+                <group>
+                    <field name="nom"/>
+                    <field name="modul"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <!-- Definición de la vista Tree -->
+    <record id="institut_cicle_view_tree" model="ir.ui.view">
+        <field name="name">Lista Cicles</field>
+        <field name="model">institut.cicle</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="nom"/>
+                <field name="modul"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Definición de la vista busqueda-->
+    <record id="institut_cicle_view_search" model="ir.ui.view">
+        <field name="name">Búsqueda Cicles</field>
+        <field name="model">institut.cicle</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="nom"/>
+                <field name="modul"/>
+            </search>
+        </field>
+    </record>
+
+</odoo>
+

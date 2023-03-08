@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Definimos como mostramos la vista en el modelo -->
+    <record id='institut_modul_action' model='ir.actions.act_window'>
+        <field name="name">Modulos</field>
+        <!-- Indicamos a que modelo aplica -->
+        <field name="res_model">institut.modul</field>
+        <!-- Indicamos que los comics pueden verse en tree para el listado,
+            y en form para la creación/edición -->
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Simple menu item, sin más utilidad que la didáctica -->
+    <menuitem name="Modulos" id="institut_modul_menu" parent="institut_base_menu" action="institut_modul_action"/>
+    
+    <!-- <menuitem name="Socios" id="biblioteca_socio_menu" parent="biblioteca_base_menu" action="biblioteca_socio_action"/> -->
+    <!-- Definición de la Vista formulario -->
+    <record id="institut_modul_view_form" model="ir.ui.view">
+        <field name="name">Formulario Modulos</field>
+        <field name="model">institut.modul</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button type="object" name="archivar" string="Archivar Modulos"/>
+                </header>
+                <group>
+                    <field name="nom"/>
+                    <field name="cicle"/>
+                    <field name="alumnes"/>
+                    <field name="professor"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <!-- Definición de la vista Tree -->
+    <record id="institut_modul_view_tree" model="ir.ui.view">
+        <field name="name">Lista Modulos</field>
+        <field name="model">institut.modul</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="nom"/>
+                <field name="cicle"/>
+                <field name="alumnes"/>
+                <field name="professor"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Definición de la vista busqueda-->
+    <record id="institut_modul_view_search" model="ir.ui.view">
+        <field name="name">Búsqueda Modulos</field>
+        <field name="model">institut.modul</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="nom"/>
+                <field name="cicle"/>
+                <field name="alumnes"/>
+                <field name="professor"/>
+            </search>
+        </field>
+    </record>
+
+</odoo>
+
