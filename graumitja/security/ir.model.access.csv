@@ -1,5 +1,9 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-acl_cicle,institut.cicle_default,model_institut_cicle,,1,1,1,1
-acl_modul,institut.modul_default,model_institut_modul,,1,1,1,1
-acl_alumne,institut.alumne_default,model_institut_alumne,,1,1,1,1
-acl_professor,institut.professor_default,model_institut_professor,,1,1,1,1
+acl_cicle,institut.cicle_default,model_institut_cicle,grupo_director,1,1,1,1
+acl_modul,institut.modul_default,model_institut_modul,grupo_director,1,1,1,1
+acl_alumne,institut.alumne_default,model_institut_alumne,grupo_director,1,1,1,1
+acl_professor,institut.professor_default,model_institut_professor,grupo_director,1,1,1,1
+acl_cicle_professor,institut.cicle_default,model_institut_cicle,grupo_professor,1,0,0,0
+acl_modul_professor,institut.modul_default,model_institut_modul,grupo_professor,1,0,0,0
+acl_alumne_professor,institut.alumne_default,model_institut_alumne,grupo_professor,1,0,0,0
+acl_professor_professor,institut.professor_default,model_institut_professor,grupo_professor,1,0,0,0
